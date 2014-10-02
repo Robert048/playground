@@ -19,7 +19,7 @@ namespace dsm
         ConnectManager connectManager;
 
         public DragDropManager() { }
-
+        //test
         public DragDropManager(ConnectManager connectManager)
         {
             this.connectManager = connectManager;
