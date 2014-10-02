@@ -51,10 +51,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="iGreen.Controls.uControls.uLabelX">
-      <HintPath>..\..\Drag-n-Drop new\Drag-n-Drop\bin\Debug\iGreen.Controls.uControls.uLabelX.dll</HintPath>
+      <HintPath>..\..\..\..\Dropbox\INF2A - DSM\Programma\DSM - Playground\dsm\bin\Debug\iGreen.Controls.uControls.uLabelX.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks">
+      <HintPath>..\..\..\..\Dropbox\INF2A - DSM\Programma\DSM - Playground\dsm\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll</HintPath>
+    </Reference>
     <Reference Include="Svg, Version=1.6.1.34843, Culture=neutral, PublicKeyToken=ae2df1f3340631bb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Svg.1.6.1\lib\Svg.dll</HintPath>
@@ -124,7 +126,6 @@
     <Compile Include="Classes\ToolManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Classes\TypeCheck.cs" />
     <Compile Include="Forms\WarningSettings.cs">
       <SubType>Form</SubType>
     </Compile>

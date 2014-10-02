@@ -13,14 +13,14 @@ namespace dsm
 {
     public partial class Calculator : Form
     {
-        object parent1;
-        object parent2;
+        private object parent1; // eerste gekoppelde machine
+        private object parent2; // tweede gekoppelde machine
 
-        object leftItem;
-        object rightItem;
+        private object leftItem;
+        private object rightItem;
 
         private int indexID;
-        private int outputType;
+        private int outputType; // 0 is double - 1 is integer
 
         private Object output;
 
@@ -35,12 +35,17 @@ namespace dsm
             comboBoxOutput.SelectedIndex = 1;
         }
 
+        /// <summary>
+        /// dropdown lijst van gegevens uit de gekoppelde machines vuillen
+        /// </summary>
         private void populateCombos()
         {
             if (parent1 != null) {
-                if (parent1 is DataTemplate) {
+                if (parent1 is DataTemplate) 
+                {
                     comboBoxLeft.Items.Clear();
-                    foreach (string[] item in (parent1 as DataTemplate).getData()) {
+                    foreach (string[] item in (parent1 as DataTemplate).getData()) 
+                    {
                         comboBoxLeft.Items.Add(item[0].ToString() + ": " + item[1]);
                     }
                 }
@@ -69,6 +74,9 @@ namespace dsm
             }
         }
 
+        /// <summary>
+        /// Modifier voor de berekening
+        /// </summary>
         private void comboBoxModifier_SelectedIndexChanged(object sender, EventArgs e)
         {
             string option = comboBoxModifier.Text;
@@ -78,15 +86,21 @@ namespace dsm
             updateAll();
         }
 
+        /// <summary>
+        /// Selecteren van de output type, double of integer
+        /// </summary>
         private void comboBoxOutput_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.outputType = comboBoxOutput.SelectedIndex;
             updateAll();
         }
 
+        /// <summary>
+        /// Als comboBoxLeft of comboBoxRight is null of als indexID is kleiner 0 of groter 4 wordt er een melding geplaatst
+        /// </summary>
         private void checkValues()
         {
-            if (comboBoxLeft.SelectedItem == null || comboBoxRight.SelectedItem == null || indexID < 0 || indexID > 5)
+            if (comboBoxLeft.SelectedItem == null || comboBoxRight.SelectedItem == null || indexID < 0 || indexID > 4)
             {
                 outputWarning.Text = "Incorrecte data, is alles correct ingevuld?";
             }
@@ -96,16 +110,24 @@ namespace dsm
             }
         }
 
+        /// <summary>
+        /// Berekening voor de output
+        /// </summary>
         private void doubleOutput()
         {
             this.output = calculatevalue.calcDouble();
         }
-
+        /// <summary>
+        /// Berekening voor de output
+        /// </summary>
         private void integerOutput()
         {
             this.output = calculatevalue.calcInteger();
         }
 
+        /// <summary>
+        /// Output update
+        /// </summary>
         private void updateAll()
         {
             checkValues();
@@ -121,17 +143,27 @@ namespace dsm
             outputDetails.Text = calculatevalue.warningMessage();
         }
 
+        /// <summary>
+        /// Getter
+        /// </summary>
         public object getOutput()
         {
             return output;
         }
 
+        /// <summary>
+        /// Form close event handler
+        /// </summary>
         private void Calculator_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
             this.Visible = false;
         }
 
+        /// <summary>
+        /// Object vullen met gegevens van database
+        /// </summary>
+        /// <param name="template"></param>
         public void setParent(object template)
         {
             if (parent1 == null) {
@@ -147,6 +179,7 @@ namespace dsm
         {
             e.SuppressKeyPress = true;
         }
+
 
         private void comboBoxLeft_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -172,11 +205,26 @@ namespace dsm
 
         private void calcLeft()
         {
-            TypeCheck typecheck1 = new TypeCheck();
-            typecheck1.typeCheck(leftItem.ToString());
+            double double1 = 0.0;
+            int integer1 = 0;
 
-            double double1 = typecheck1.getDouble();
-            int integer1 = typecheck1.getInteger();
+            try
+            {
+                double1 = Convert.ToDouble(leftItem.ToString());
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
+
+            try
+            {
+                integer1 = Convert.ToInt32(leftItem.ToString());
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
 
             calculatevalue.setDouble1(double1);
             calculatevalue.setInteger1(integer1);
@@ -188,11 +236,26 @@ namespace dsm
 
         private void calcRight()
         {
-            TypeCheck typecheck2 = new TypeCheck();
-            typecheck2.typeCheck(rightItem.ToString());
+            double double2 = 0.0;
+            int integer2 = 0;
 
-            double double2 = typecheck2.getDouble();
-            int integer2 = typecheck2.getInteger();
+            try
+            {
+                double2 = Convert.ToDouble(rightItem.ToString());
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
+
+            try
+            {
+                integer2 = Convert.ToInt32(rightItem.ToString());
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+            }
 
             calculatevalue.setDouble2(double2);
             calculatevalue.setInteger2(integer2);
