@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// Gegevens van de machines -> DropDown
 namespace dsm
 {
     public class DataTemplate

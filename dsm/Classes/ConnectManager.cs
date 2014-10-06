@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
+// int click -> bool clicks
 namespace dsm
 {
     class ConnectManager

@@ -7,6 +7,7 @@ using System.Text;
 
 namespace dsm
 {
+    //In laden en verwijderen van eigen Images
     public class FolderManager
     {
         ReaderWriter readerWriter;

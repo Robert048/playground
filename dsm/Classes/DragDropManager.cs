@@ -99,7 +99,10 @@ namespace dsm
         }
         #endregion Move Controls
 
+        
         #region Start Drag Events
+
+        // Selecteert Drag Item om te slepen op het playground
         public void comboBox_MouseDown_label(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left && (sender as ComboBox).DroppedDown == false) {
