@@ -41,6 +41,10 @@ namespace dsm
         }
 
         #region Move Panel(Handtool)
+        /// <summary>
+        /// drop and drag voor panels
+        /// </summary>
+        /// <param name="panel"></param>
         public void movePanel(Panel panel)
         {
             panel.MouseDown += playground_MouseDown;
@@ -55,6 +59,11 @@ namespace dsm
         #endregion Move Panel(Handtool)
 
         #region Text Tool Events
+        /// <summary>
+        /// texttool drag en drop
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void textTool_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) {
@@ -69,6 +78,11 @@ namespace dsm
             }
         }
 
+        /// <summary>
+        /// textbox veranderen naar label bij enter
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) {
@@ -89,12 +103,22 @@ namespace dsm
             }
         }
 
+        /// <summary>
+        /// verplaatsen van label
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void label_LocationChanged(object sender, EventArgs e)
         {
             (sender as uLabelX).Hide();
             (sender as uLabelX).Show();
         }
 
+        /// <summary>
+        /// dubbel klikken verandert het weer terug in textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void label_DoubleClick(object sender, EventArgs e)
         {
             TextBox textBox = new TextBox();
@@ -113,6 +137,7 @@ namespace dsm
         #endregion Text Tool Events
 
         #region Edit/View Mode
+        //TODO uitwerken edit en view mode
         public void editModeButton_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             e.ClickedItem.OwnerItem.Text = e.ClickedItem.Text;
@@ -128,6 +153,11 @@ namespace dsm
         #endregion Edit/View Mode
 
         #region Panel Events
+        /// <summary>
+        /// drag voor de tools
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void playground_MouseDown(object sender, MouseEventArgs e)
         {
             if (handToolSelected) {
@@ -145,9 +175,13 @@ namespace dsm
             }
         }
 
+        /// <summary>
+        /// drop voor de tools
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void playground_MouseUp(object sender, MouseEventArgs e)
         {
-            dragPlayground = false;
             handToolSelected = false;
             dragPlayground = false;
             if (lineToolSelected) {
@@ -210,6 +244,11 @@ namespace dsm
             }
         }
 
+        /// <summary>
+        /// slepen van de tools
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void playground_MouseMove(object sender, MouseEventArgs e)
         {
             if (dragPlayground) {
@@ -223,6 +262,8 @@ namespace dsm
         #endregion Panel Events
 
         #region Shape Tools
+        //tool selection in menubalk
+
         public void lineTool_Click(object sender, EventArgs e)
         {
             lineToolSelected = (sender as ToolStripButton).Checked;
@@ -247,6 +288,11 @@ namespace dsm
         #endregion Shape Tools
 
         #region Shape Events
+        /// <summary>
+        /// drag en drop van een image
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void shape_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) {
@@ -265,6 +311,11 @@ namespace dsm
         #endregion Shape Events
 
         #region Logical Controls
+        /// <summary>
+        /// drag en drop van logical operators
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void outputTool_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) {
@@ -298,6 +349,11 @@ namespace dsm
             }
         }
 
+        /// <summary>
+        /// drag en drop van calculator
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void calcTool_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) {
@@ -348,6 +404,11 @@ namespace dsm
             ((sender as Control).Tag as Form).ShowDialog();
         }
 
+        /// <summary>
+        /// selection van tool in menubalk
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void menuBar_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             foreach (ToolStripItem item in (sender as ToolStrip).Items) {

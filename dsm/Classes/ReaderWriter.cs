@@ -8,6 +8,7 @@ using System.Xml;
 
 namespace dsm
 {
+    //laad afbeeldingen in
     class ReaderWriter
     {
         readonly string folderPath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Playground";
