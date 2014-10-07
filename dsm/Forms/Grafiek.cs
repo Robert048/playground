@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace dsm
 {
+    //TODO alles.
     public partial class Grafiek : Form
     {
         // Database ophalen en laden in een array?
@@ -39,7 +40,7 @@ namespace dsm
         private void loadDatabase()
         {
             // Test database, Echte database moet nog gerealiseerd worden
-            /////////////////////////////////////
+            //////////////////////////////////////TODO
             Random random = new Random();
             for (int i = 0; i < 20; i++)
             {
@@ -47,7 +48,7 @@ namespace dsm
                 Console.WriteLine(value);
                 rowList.Add(value);
             }
-            /////////////////////////////////////
+            ////////////////////////////////////////TODO/////////////
         }
 
         private void updateAll()
