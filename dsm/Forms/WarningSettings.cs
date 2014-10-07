@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//TODO implementeren
 namespace dsm
 {
     public partial class WarningSettings : Form
