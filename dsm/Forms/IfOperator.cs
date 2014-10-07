@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//TODO ifoperator voor logical operator scherm
 namespace dsm
 {
     public partial class IfOperator : Form

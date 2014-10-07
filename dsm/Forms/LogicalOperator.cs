@@ -12,9 +12,9 @@ namespace dsm
 {
     public partial class LogicalOperator : Form
     {
-        ToolManager toolManager;
-        ConnectManager connectionManager;
-        DragDropManager dragDropManager;
+        private ToolManager toolManager;
+        private ConnectManager connectionManager;
+        private DragDropManager dragDropManager;
 
         public LogicalOperator(List<DataTemplate> templates)
         {
@@ -49,6 +49,11 @@ namespace dsm
             this.Close();
         }
 
+        /// <summary>
+        /// displays output van calculator
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LogicalOperator_Activated(object sender, EventArgs e)
         {
             foreach (Control control in logicalPanel.Controls) {
@@ -58,6 +63,11 @@ namespace dsm
             }
         }
 
+        /// <summary>
+        /// menu knoppen klikken
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void menuBar_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             foreach (ToolStripItem item in (sender as ToolStrip).Items) {
@@ -75,6 +85,10 @@ namespace dsm
         }
         #endregion Form Events
 
+        /// <summary>
+        /// comboBox vullen
+        /// </summary>
+        /// <param name="templates"></param>
         private void populateList(List<DataTemplate> templates)
         {
             for (int i = 0; i < templates.Count; i++) {
@@ -96,6 +110,10 @@ namespace dsm
             }
         }
 
+        /// <summary>
+        /// output van logical operator formulier
+        /// </summary>
+        /// <returns></returns>
         public object getOutput()
         {
             try {
