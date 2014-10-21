@@ -46,6 +46,11 @@ namespace dsm
         }
 
         #region Database Events
+        /// <summary>
+        /// Database update timer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void updateTimer_Tick(object sender, EventArgs e)
         {
             updateTimer.Enabled = false;
@@ -59,11 +64,21 @@ namespace dsm
             updateTimer.Enabled = true;
         }
 
+        /// <summary>
+        /// Refresh van de timer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void refreshButton_Click(object sender, EventArgs e)
         {
             updateTimer_Tick(updateTimer, e);
         }
 
+        /// <summary>
+        /// Interval textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void updateTimeTextBox_TextChanged(object sender, EventArgs e)
         {
             int value;
@@ -75,6 +90,10 @@ namespace dsm
             }
         }
 
+        /// <summary>
+        /// Data uit database in combobox
+        /// </summary>
+        /// <param name="sql"></param>
         private void drawDataCombo(string sql)
         {
             List<DataRow> rows = data.executeQuery(sql);
@@ -114,6 +133,10 @@ namespace dsm
             }
         }
 
+        /// <summary>
+        /// Veranderen van label text
+        /// </summary>
+        /// <param name="value"></param>
         private void setConnectionLabel(bool value)
         {
             if (value) {
@@ -129,11 +152,21 @@ namespace dsm
         #endregion Database Events
 
         #region Form Events
+        /// <summary>
+        /// menuBar brede aanpassen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PlayGround_SizeChanged(object sender, EventArgs e)
         {
             menuBar.Width = this.Width - 18;
         }
 
+        /// <summary>
+        /// Veranderen van output tekst
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PlayGround_Activated(object sender, EventArgs e)
         {
             foreach (Control control in panelPlayground.Controls) {
@@ -145,6 +178,9 @@ namespace dsm
         #endregion Form Events
 
         #region Shape Events
+        /// <summary>
+        /// Toevoegen van picturebox in de rechte kant van PlayGround
+        /// </summary>
         private void populateShapes()
         {
             int width = 10;
@@ -186,20 +222,23 @@ namespace dsm
             } 
         }
 
+        /// <summary>
+        /// Parsing van de string
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         private string getName(string path)
         {
             return path.Substring(path.LastIndexOf(@"\") + 1, path.Length - path.LastIndexOf(@"\") - 5);
         }
-
-        private Font getCorrectFontSize(Label label)
-        {
-            Font font = null;
-            
-            return font;
-        }
         #endregion Shape Events
         
         #region Menu Events
+        /// <summary>
+        /// Alles verwijderen van playground
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void clearPlayGroundToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Wil je alles verwijderen?", "Waarschuwing",
@@ -212,12 +251,22 @@ namespace dsm
         }
         #endregion Menu Events
 
+        /// <summary>
+        /// Openen van de grafiek form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void viewGraphToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Grafiek secondForm = new Grafiek();
             secondForm.Show();
         }
 
+        /// <summary>
+        /// Aanmaken van de logical operator
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void createLogicEditoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LogicalOperator logicalOperator = new LogicalOperator(templates);
@@ -252,6 +301,11 @@ namespace dsm
             catch { }
         }
 
+        /// <summary>
+        /// Nieuwe afbeelding toevoegen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addShapeButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
