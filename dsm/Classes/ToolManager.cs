@@ -338,8 +338,9 @@ namespace dsm
 
                 panel.Controls.Add(name);
                 panel.Controls.Add(output);
-                panel.DoubleClick += panel_DoubleClick;
+            //    panel.DoubleClick += panel_DoubleClick;
                 panel.Click += connectionManager.panel_Click;
+               
                 //      Make move-able      //
                 dragDropManager.makeControlMove(panel);
                 dragDropManager.setActiveControl(panel);
