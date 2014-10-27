@@ -109,12 +109,12 @@ namespace dsm
                 Label label = new Label();
                 if ((sender as ComboBox).SelectedItem != null) {
                     string value = (sender as ComboBox).SelectedItem.ToString();
-                    int split = value.IndexOf(':') + 2;
+                    int split = value.IndexOf(':') + 1;
                     label.Text = value.Substring(split, value.Length - split);
                 }
                 else {
                     string value = (sender as ComboBox).Text;
-                    int split = value.IndexOf(':') + 2;
+                    int split = value.IndexOf(':') + 1;
                     label.Text = value.Substring(split, value.Length - split);
                 }
 

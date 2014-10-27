@@ -146,6 +146,7 @@ namespace dsm
         public bool isEditMode()
         {
             if (mainPanel.Controls["menuBar"].Controls["editModeButton"].Text == "Edit Mode") {
+             
                 return true;
             }
             return false;
