@@ -16,20 +16,4 @@ namespace dsm
             Application.Run(new PlayGround());
         }
     }
-
-    public class MySR : ToolStripSystemRenderer
-    {
-        public MySR() 
-        {
- 
-        }
-
-        protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
-        {
-            if (e.ToolStrip.Name == "toolStrip1")
-            {
-                base.OnRenderToolStripBorder(e);
-            }
-        }
-    }
 }
